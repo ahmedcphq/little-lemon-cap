@@ -1,0 +1,30 @@
+.header {
+  grid-column: 3/13;
+  grid-row: 1;
+  margin: auto 70px;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav > img {
+  height: 3.31rem;
+}
+
+.links {
+  display: flex;
+  margin-left: 4rem;
+}
+
+.links li {
+  margin-right: 2rem;
+  list-style-type: none;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--secondary-dark);
+}

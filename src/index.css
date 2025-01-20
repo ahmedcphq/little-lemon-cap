@@ -1,13 +1,92 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Markazi+Text:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+
+:root {
+  --primary-green: #495e57;
+  --primary-yellow: #f4ce14;
+  --secondary-peach: #ee9972;
+  --secondary-peach-light: #fbdabb;
+  --secondary-light: #edefee;
+  --secondary-dark: #333333;
+}
+
+body {
+  font-family: "Markazi Text", "Karla", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 10rem 1fr 24rem;
+  column-gap: 1.25rem;
+  grid-auto-flow: row;
+}
+
+h1,
+h2 {
+  font-family: "Markazi Text";
+  text-transform: capitalize;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Karla";
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+h4 {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+h5 {
+  text-transform: capitalize;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+h6 {
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  inline-size: 15rem;
+  overflow-wrap: break-word;
+}
+
+p.highlight {
+  font-weight: 500;
+  color: var(--secondary-peach);
+  inline-size: unset;
 }
