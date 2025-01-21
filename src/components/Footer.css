@@ -1,8 +1,8 @@
 .footer {
   grid-row: 3;
-  grid-column: 1/13;
+  grid-column: 1/-1;
   width: 100%;
-  background-color: var(--primary-green);
+  background-color: var(--secondary-light);
   display: grid;
   justify-content: center;
   align-items: center;
@@ -29,9 +29,24 @@ footer h5 {
 footer img {
   height: 17.5rem;
   fill: brown;
-  margin-top: -5rem;
 }
 
 footer img ~ div {
   padding-top: 2rem;
+}
+
+@media (max-width: 440px) {
+  .footer .container {
+    flex-direction: row;
+    grid-column: 1/-1;
+    justify-content: center;
+  }
+
+  footer img {
+    display: none;
+  }
+
+  footer img ~ div {
+    padding-top: 0;
+  }
 }

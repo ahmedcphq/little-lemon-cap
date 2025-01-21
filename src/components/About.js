@@ -4,7 +4,7 @@ import Owners2 from "../assets/Owners2.jpg";
 
 const About = () => {
   return (
-    <section className="about">
+    <section id="about">
       <div className="container">
         <div className="content">
           <h1>Little Lemon</h1>
@@ -21,7 +21,7 @@ const About = () => {
             className="about-img"
             style={{ marginTop: 30 }}
           />
-          <img src={Owners2} alt="food served" className="about-img" />
+          <img src={Owners2} alt="food served" className="about-img last" />
         </div>
       </div>
     </section>

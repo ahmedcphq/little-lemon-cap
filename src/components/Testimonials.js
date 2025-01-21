@@ -37,8 +37,8 @@ const Testimonials = () => {
     <section className="testimonials">
       <h2>Testimonials</h2>
       <div className="reviews">
-        {reviews.map(({ ...props }) => (
-          <Review {...props} />
+        {reviews.map(({ ...props }, i) => (
+          <Review key={i} {...props} />
         ))}
       </div>
     </section>

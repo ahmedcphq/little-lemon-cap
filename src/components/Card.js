@@ -8,7 +8,9 @@ const Card = ({ img, title, price, text }) => {
         <h5>{title}</h5>
         <p className="highlight">${price}</p>
       </div>
-      <p>{text}</p>
+      <article>
+        <p>{text}</p>
+      </article>
       <div className="card-footer">
         <h5>Order a delivery</h5>
         <img src={Delivery} alt="Delivery icon" height={20} />

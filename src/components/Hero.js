@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="container">
-        <div className="content">
+        <article className="content">
           <h1>Little Lemon</h1>
           <h2>Chicago</h2>
           <p>
@@ -14,7 +14,7 @@ const Hero = () => {
             traditional recipes served with a modern twist.
           </p>
           <Button />
-        </div>
+        </article>
         <div className="image-wrapper">
           <img src={HeroPhoto} alt="food served" className="hero-img" />
         </div>

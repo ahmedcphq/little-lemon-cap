@@ -22,7 +22,7 @@ const footerLinks = [
     ],
   },
   {
-    title: "Social Media Links",
+    title: "Social Media",
     links: [
       { name: "Facebook", url: "#" },
       { name: "Instagram", url: "#" },

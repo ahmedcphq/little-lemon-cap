@@ -1,8 +1,9 @@
 .hero {
   width: 100%;
   display: grid;
-  grid-column: 1/13;
+  grid-column: 1/-1;
   grid-row: 1;
+  padding-bottom: 2rem;
   grid-template-columns: subgrid;
   background-color: var(--primary-green);
 }
@@ -16,7 +17,6 @@
 
 .content {
   grid-column: 1/4;
-  row-gap: 5rem;
   color: var(--secondary-light);
   padding-top: 2rem;
 }
@@ -42,6 +42,13 @@
   border: none;
   border-radius: 1rem;
   cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.reserve-button:hover {
+  background-color: var(--primary-green);
+  color: var(--secondary-light);
+  border: 5px solid var(--secondary-light);
 }
 
 .image-wrapper {
@@ -58,24 +65,38 @@
   object-fit: cover;
 }
 
-/*
-@media (max-width: 1024px) {
-  .content {
-    max-width: 100%;
-    margin-bottom: 2rem;
-  }
-}
-
 @media (max-width: 440px) {
-  .content h1 {
-    font-size: 3rem;
+  .hero {
+    grid-template-columns: none;
   }
 
-  .content h2 {
-    font-size: 2rem;
+  .hero .container {
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  .content {
+    grid-column: unset;
+    padding-top: 0;
+  }
+
+  .content > h1 {
+    text-wrap: nowrap;
   }
 
   .image-wrapper {
-    height: 300px;
+    margin: auto 0;
+    margin-top: 6rem;
+    margin-left: -3rem;
   }
-} */
+
+  .hero-img {
+    margin: 0;
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .reserve-button {
+    height: 2.3rem;
+  }
+}

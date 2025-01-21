@@ -1,31 +1,29 @@
 import Logo from "../assets/Logo.svg";
+import MenuIcon from "../assets/HamburgerIcon.svg";
 import "./Nav.css";
-
-const navLinks = [
-  { name: "home", url: "#" },
-  { name: "about", url: "#" },
-  { name: "menu", url: "#" },
-  { name: "reservations", url: "#" },
-  { name: "order Online", url: "#" },
-  { name: "login", url: "#" },
-];
+import Basket from "../assets/Basket .svg";
+import { useState } from "react";
+import NavLinks from "./NavLinks";
 
 const Nav = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="header">
       <nav className="nav">
+        <div className="drop-down">
+          <button className="menu" onClick={() => setOpen(!open)}>
+            <img src={MenuIcon} alt="Menu hidden" />
+          </button>
+          <NavLinks
+            className={`dropdown-content links ${open ? "open" : ""}`}
+          />
+        </div>
         <img src={Logo} alt="Little Lemon Logo" className="logo" />
-        <ul className="links">
-          {navLinks.map(({ name, url }, i) => {
-            return (
-              <li key={i}>
-                <a href={url}>
-                  <h4>{name}</h4>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        <button className="menu">
+          <img src={Basket} alt="Menu hidden" />
+        </button>
+        <NavLinks className="links hidden" />
       </nav>
     </header>
   );

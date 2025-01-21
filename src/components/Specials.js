@@ -28,14 +28,14 @@ const cards = [
 
 const Specials = () => {
   return (
-    <section class="specials">
+    <section id="specials">
       <div className="title">
         <h1>This weeks specials!</h1>
         <Button />
       </div>
       <div className="cards">
-        {cards.map(({ image, ...rest }) => {
-          return <Card img={image} {...rest} />;
+        {cards.map(({ image, ...rest }, i) => {
+          return <Card key={i} img={image} {...rest} />;
         })}
       </div>
     </section>
