@@ -4,7 +4,7 @@ import Specials from "./Specials";
 import Testimonials from "./Testimonials";
 import About from "./About";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <main className="main">
@@ -17,4 +17,4 @@ const Home = () => {
     </>
   );
 };
-export default Home;
+export default HomePage;

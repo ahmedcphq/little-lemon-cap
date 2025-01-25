@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   grid-template-columns: subgrid;
+  height: 24rem;
 }
 
 .footer .container {
@@ -36,6 +37,10 @@ footer img ~ div {
 }
 
 @media (max-width: 440px) {
+  .footer {
+    height: 15rem;
+  }
+
   .footer .container {
     flex-direction: row;
     grid-column: 1/-1;

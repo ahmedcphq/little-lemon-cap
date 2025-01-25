@@ -25,7 +25,7 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 7.7rem 1fr 24rem;
+  grid-template-rows: 7.7rem 1fr auto;
   column-gap: 1.25rem;
   grid-auto-flow: row;
 }
@@ -93,7 +93,7 @@ p.highlight {
 
 @media (max-width: 440px) {
   #root {
-    grid-template-rows: 5rem 1fr 15rem;
+    grid-template-rows: 5rem 1fr auto;
     overflow-x: hidden;
     scroll-margin: 0;
     scroll-padding: 0;

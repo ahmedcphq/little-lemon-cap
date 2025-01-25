@@ -1,13 +1,6 @@
-const navLinks = [
-  { name: "home", url: "home", type: "route" },
-  { name: "about", url: "about", type: "section" },
-  { name: "menu", url: "specials", type: "section" },
-  { name: "reservations", url: "reservations", type: "route" },
-  { name: "order Online", url: "specials", type: "section" },
-  { name: "login", url: "login", type: "route" },
-];
+import { Link } from "react-router-dom";
 
-const NavLinks = ({ className }) => {
+const NavLinks = ({ className, links }) => {
   const handleClick = (anchor) => (e) => {
     const id = anchor;
     const element = document.getElementById(id);
@@ -21,20 +14,25 @@ const NavLinks = ({ className }) => {
     }
   };
   return (
-    <ul className={className}>
-      {navLinks.map(({ name, url, type }, i) => {
-        return (
-          <li key={i}>
-            <a
-              onClick={handleClick(url)}
-              href={type === "section" ? `/#${url}` : `/${url}`}
-            >
-              <h4>{name}</h4>
-            </a>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <ul className={className}>
+        {links.map(({ name, url, type }, i) => {
+          return (
+            <li key={i}>
+              {type === "section" ? (
+                <a href={"/#" + url} onClick={handleClick(url)}>
+                  <h4>{name}</h4>
+                </a>
+              ) : (
+                <Link to={"/" + url}>
+                  <h4>{name}</h4>
+                </Link>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 };
 export default NavLinks;

@@ -4,6 +4,7 @@ import Bruchetta from "../assets/Bruchetta.jpg";
 import Dessert from "../assets/Dessert.jpg";
 import "./Specials.css";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 const cards = [
   {
@@ -31,7 +32,9 @@ const Specials = () => {
     <section id="specials">
       <div className="title">
         <h1>This weeks specials!</h1>
-        <Button />
+        <Link to="/reservations">
+          <Button className="reserve-button">Reserve a Table</Button>
+        </Link>
       </div>
       <div className="cards">
         {cards.map(({ image, ...rest }, i) => {

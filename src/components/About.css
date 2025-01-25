@@ -54,6 +54,10 @@
   margin: -2rem;
 }
 
+.about-img.first {
+  margin-top: 2rem;
+}
+
 @media (max-width: 440px) {
   #about {
     height: 44rem;
@@ -87,5 +91,9 @@
 
   .about-img.last {
     display: none;
+  }
+
+  .about-img.last {
+    margin-top: 0;
   }
 }

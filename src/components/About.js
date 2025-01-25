@@ -1,29 +1,20 @@
 import "./About.css";
 import Owners1 from "../assets/Owners1.jpg";
 import Owners2 from "../assets/Owners2.jpg";
+import HeroContainer from "./HeroContainer";
+import HeroText from "./HeroText";
+
+const images = [
+  { img: Owners1, alt: "owners photo", className: "about-img first" },
+  { img: Owners2, alt: "2nd owners photo", className: "about-img last" },
+];
 
 const About = () => {
   return (
     <section id="about">
-      <div className="container">
-        <div className="content">
-          <h1>Little Lemon</h1>
-          <h2>Chicago</h2>
-          <p>
-            We are a family owned Mediterranean restaurant, focused on
-            traditional recipes served with a modern twist.
-          </p>
-        </div>
-        <div className="image-wrapper">
-          <img
-            src={Owners1}
-            alt="food served"
-            className="about-img"
-            style={{ marginTop: 30 }}
-          />
-          <img src={Owners2} alt="food served" className="about-img last" />
-        </div>
-      </div>
+      <HeroContainer imgs={images} img2={images}>
+        <HeroText />
+      </HeroContainer>
     </section>
   );
 };

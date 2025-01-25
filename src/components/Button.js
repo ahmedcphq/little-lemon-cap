@@ -1,7 +1,7 @@
-const Button = () => {
+const Button = ({ children, className, type }) => {
   return (
-    <button className="reserve-button">
-      <h6>Reserve a Table</h6>
+    <button type={type} className={className}>
+      <h6>{children}</h6>
     </button>
   );
 };
