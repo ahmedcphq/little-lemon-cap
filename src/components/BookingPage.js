@@ -1,6 +1,3 @@
-// import { useFormik } from "formik";
-// import * as Yup from "yup";
-
 import HeroContainer from "./HeroContainer";
 import "./Booking.css";
 import BookingForm from "./BookingForm";
@@ -10,12 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { initialzeTimes, updateTimes } from "../utils/helpers";
 
 const BookingPage = () => {
-  const [inputs, setInputs] = useState({
-    date: "",
-    time: "",
-    guests: 1,
-    occasion: "Birthday",
-  });
+  const [date, setDate] = useState("");
 
   const [response, setResponse] = useState(false);
 
@@ -28,10 +20,10 @@ const BookingPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (inputs.date) {
-      dispatch({ type: "UPDATE_TIMES", date: inputs.date });
+    if (date) {
+      dispatch({ type: "UPDATE_TIMES", date: date });
     }
-  }, [inputs.date]);
+  }, [date]);
 
   useEffect(() => {
     if (response) {
@@ -53,8 +45,7 @@ const BookingPage = () => {
             <BookingForm
               availableTimes={availableTimes}
               dispatch={dispatch}
-              inputs={inputs}
-              setInputs={setInputs}
+              setDate={setDate}
               submit={submitForm}
             />
           </HeroContainer>

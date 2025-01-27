@@ -13,7 +13,11 @@ const Nav = () => {
     <header className="header">
       <nav className="nav">
         <div className="drop-down">
-          <button className="menu" onClick={() => setOpen(!open)}>
+          <button
+            className="menu"
+            onClick={() => setOpen(!open)}
+            aria-label="On Click"
+          >
             <img src={MenuIcon} alt="Menu hidden" />
           </button>
           <NavLinks

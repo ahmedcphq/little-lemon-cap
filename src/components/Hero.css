@@ -51,6 +51,12 @@
   border: 5px solid var(--secondary-light);
 }
 
+.reserve-button.disabled {
+  background-color: var(--secondary-light);
+  color: var(--secondary-dark);
+  transition: none;
+}
+
 .image-wrapper {
   width: 375px;
   margin-bottom: -100px;

@@ -20,7 +20,11 @@ const NavLinks = ({ className, links }) => {
           return (
             <li key={i}>
               {type === "section" ? (
-                <a href={"/#" + url} onClick={handleClick(url)}>
+                <a
+                  href={"/#" + url}
+                  onClick={handleClick(url)}
+                  aria-label="On Click"
+                >
                   <h4>{name}</h4>
                 </a>
               ) : (

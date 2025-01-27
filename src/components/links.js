@@ -4,7 +4,7 @@ const links = [
   { name: "menu", url: "specials", type: "section" },
   { name: "reservations", url: "reservations", type: "route" },
   { name: "order Online", url: "specials", type: "section" },
-  { name: "login", url: "login", type: "route" },
+  { name: "login", url: "login", type: "section" },
 ];
 
 export default links;

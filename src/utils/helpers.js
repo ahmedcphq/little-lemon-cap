@@ -11,6 +11,7 @@ export function updateTimes(times, action) {
       const { date } = action;
 
       const updatedTimes = fetchAPI(new Date(date));
+
       return updatedTimes;
     default:
       return initialzeTimes();
