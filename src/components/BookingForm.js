@@ -1,6 +1,8 @@
+// import { useFormik } from "formik";
 import Button from "./Button";
+// import * as Yup from "yup";
 
-const BookingForm = ({ availableTimes, dispatch, inputs, setInputs }) => {
+const BookingForm = ({ availableTimes, inputs, setInputs, submit }) => {
   // const formik = useFormik({
   //   initialValues: {
   //     resDate: "",
@@ -17,52 +19,32 @@ const BookingForm = ({ availableTimes, dispatch, inputs, setInputs }) => {
   //     guests: Yup.number()
   //       .min(2, "Reservations require minimun 2 guests")
   //       .required("Required"),
+  //     occasion: Yup.string().optional(),
   //   }),
-  //   occasion: Yup.string().optional(),
   // });
 
-  const handleDateChange = (e) => {
-    const date = e.target.value;
-
-    setInputs((prev) => ({ ...prev, date: date }));
-    dispatch({ type: "CHECK_TIMES", date: date });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    dispatch({ type: "UPDATE_TIMES", time: inputs?.time, date: inputs?.date });
-
-    setInputs({
-      date: "",
-      time: "",
-      guests: 1,
-      occasion: "Birthday",
-    });
-  };
-
-  console.log(inputs.date);
-
   return (
-    <form id="booking-form" onSubmit={handleSubmit}>
-      <div className="form-group">
+    <form id="booking-form">
+      <fieldset className="form-group">
         <label htmlFor="res-date" className="label" aria-required>
-          <h4>Choose date</h4>
+          Choose date
         </label>
         <input
           type="date"
           id="res-date"
           value={inputs?.date}
-          onChange={handleDateChange}
+          onChange={(e) =>
+            setInputs((prev) => ({ ...prev, date: e.target.value }))
+          }
           required
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="res-time">
-          <h4>Choose time</h4>
+      </fieldset>
+      <fieldset className="form-group">
+        <label htmlFor="res-time" className="label">
+          Choose time
         </label>
         <select
-          id="res-time "
+          id="res-time"
           value={inputs?.time}
           onChange={(e) =>
             setInputs((prev) => ({ ...prev, time: e.target.value }))
@@ -71,21 +53,16 @@ const BookingForm = ({ availableTimes, dispatch, inputs, setInputs }) => {
           disabled={!inputs?.date}
         >
           <option value="">Select Time</option>
-          {availableTimes?.[inputs?.date] &&
-          availableTimes?.[inputs.date] < 1 ? (
+          {availableTimes && availableTimes < 1 ? (
             <option value="">No Booking available for this day</option>
-          ) : availableTimes?.[inputs?.date] ? (
-            availableTimes?.[inputs?.date].map((t, i) => (
-              <option key={i}>{t}</option>
-            ))
           ) : (
-            availableTimes?.init.map((t, i) => <option key={i}>{t}</option>)
+            availableTimes?.map((t, i) => <option key={i}>{t}</option>)
           )}
         </select>
-      </div>
-      <div className="form-group">
-        <label htmlFor="guests">
-          <h4>Number of guests</h4>
+      </fieldset>
+      <fieldset className="form-group">
+        <label htmlFor="guests" className="label">
+          Number of guests
         </label>
         <input
           type="number"
@@ -101,10 +78,10 @@ const BookingForm = ({ availableTimes, dispatch, inputs, setInputs }) => {
             }))
           }
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="occasion">
-          <h4>Occasion</h4>
+      </fieldset>
+      <fieldset className="form-group">
+        <label htmlFor="occasion" className="label">
+          Occasion
         </label>
         <select
           id="occasion"
@@ -119,8 +96,15 @@ const BookingForm = ({ availableTimes, dispatch, inputs, setInputs }) => {
           <option>Birthday</option>
           <option>Anniversary</option>
         </select>
-      </div>
-      <Button type="submit" className="reserve-button">
+      </fieldset>
+      <Button
+        type="submit"
+        className="reserve-button"
+        onClick={(e) => {
+          e.preventDefault();
+          submit(inputs);
+        }}
+      >
         Make Your reservation
       </Button>
     </form>

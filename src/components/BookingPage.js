@@ -4,36 +4,10 @@
 import HeroContainer from "./HeroContainer";
 import "./Booking.css";
 import BookingForm from "./BookingForm";
-import { useReducer, useState } from "react";
-
-export const initialzeTimes = () => {
-  return { init: ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"] };
-};
-
-const checkTimes = (date, times) => {
-  if (!times[date]) {
-    return { ...times, [date]: [...initialzeTimes().init] };
-  }
-  return times;
-};
-
-export function updateTimes(times, action) {
-  const initTimes = times[0];
-
-  switch (action.type) {
-    case "UPDATE_TIMES":
-      const { date, time } = action;
-      const updatedTimes = times[date].filter((t) => t !== time);
-      return { ...times, [date]: updatedTimes };
-
-    case "CHECK_TIMES":
-      const checkedTimes = checkTimes(action.date, times);
-
-      return checkedTimes;
-    default:
-      return initTimes;
-  }
-}
+import { useEffect, useReducer, useState } from "react";
+import { submitAPI } from "../utils/api";
+import { useNavigate } from "react-router-dom";
+import { initialzeTimes, updateTimes } from "../utils/helpers";
 
 const BookingPage = () => {
   const [inputs, setInputs] = useState({
@@ -43,11 +17,33 @@ const BookingPage = () => {
     occasion: "Birthday",
   });
 
+  const [response, setResponse] = useState(false);
+
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
     [],
     initialzeTimes
   );
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (inputs.date) {
+      dispatch({ type: "UPDATE_TIMES", date: inputs.date });
+    }
+  }, [inputs.date]);
+
+  useEffect(() => {
+    if (response) {
+      navigate("/confirmation");
+    }
+  }, [response, navigate]);
+
+  const submitForm = (formData) => {
+    const res = submitAPI(formData);
+
+    setResponse(res);
+  };
 
   return (
     <>
@@ -59,6 +55,7 @@ const BookingPage = () => {
               dispatch={dispatch}
               inputs={inputs}
               setInputs={setInputs}
+              submit={submitForm}
             />
           </HeroContainer>
         </section>
